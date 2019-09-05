@@ -8,10 +8,8 @@
     <p>{{this.players}}</p>
   </div>
   <button type="button" @click="addPlayer()">+</button>
-  </div>
-<<<<<<< HEAD
-  <button type="button" @click="removePlayer()">-</button>
   <button type="button" @click="firstClue()">PLAY</button>
+</div>
 
 =======
 >>>>>>> master
