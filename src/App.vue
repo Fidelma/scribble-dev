@@ -63,12 +63,47 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: #e6ffff;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+
+}
+
+button {
+  background-color: #ffff99; /* Green */
+  border: solid 1px black;
+  color: black;
+  padding: 15px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+
+  border:1px solid #E8E8E8;  
+  box-shadow:2px 3px 3px rgba(0, 0, 0, 0.40);
+}
+
+button:hover {
+  box-shadow:1px 1px 1px rgba(0, 0, 0, 0.40);
 }
 </style>
