@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navigation/>
+    <navigation class="nav" ></navigation>
     <home v-if="this.displayHome"/>
     <needed v-if="this.displayNeeded"/>
     <rules v-if="this.displayRules"/>
@@ -78,6 +78,12 @@ export default {
 </script>
 
 <style>
+.nav {
+  background-color: red;
+  display: flex;
+
+}
+
 body {
   margin: 0;
 }
@@ -93,7 +99,6 @@ body {
   text-align: center;
   color: #2c3e50;
   background-color: #e6ffff;
-
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -111,9 +116,10 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Ubuntu", sans-serif;
-
+  margin-left: auto;
+  margin-right: auto;
   border:1px solid #E8E8E8;
   box-shadow:2px 3px 3px rgba(0, 0, 0, 0.40);
 }
