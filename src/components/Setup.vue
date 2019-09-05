@@ -1,12 +1,14 @@
 <template lang="html">
   <div class="">
 
-  <button type="button" @click="addPlayer()">+</button>
-  <div class="">
-    <h2>{{this.players}}</h2>
-  </div>
+  <h1>How many playing?</h1>
+  <div class="selector">
   <button type="button" @click="removePlayer()">-</button>
-
+  <div class="">
+    <p>{{this.players}}</p>
+  </div>
+  <button type="button" @click="addPlayer()">+</button>
+  </div>
 </div>
 </template>
 
@@ -35,4 +37,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+.selector {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+}
+
 </style>

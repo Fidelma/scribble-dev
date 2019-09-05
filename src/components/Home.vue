@@ -1,9 +1,8 @@
 <template lang="html">
-  <div class="">
+  <div class="home">
 
-  <img src="" alt="">
   <div class="postit"><h1>Scribble</h1></div>
-  <button type="button" name="button" @click="startPlay()">PLAY</button>
+  <button type="button" name="button" @click="startPlay()">Play!</button>
 
   </div>
 </template>
@@ -23,6 +22,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
 .postit {
 animation: postit-spin infinite 0.5s ease-in-out;
 /*animation-iteration-count: 3;*/

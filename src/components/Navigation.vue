@@ -3,7 +3,7 @@
 
   <button type="button" @click="homeSetup()">Home</button>
 
-</div>
+  </div>
 </template>
 
 <script>
