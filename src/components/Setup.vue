@@ -6,11 +6,14 @@
     <h2>{{this.players}}</h2>
   </div>
   <button type="button" @click="removePlayer()">-</button>
+  <button type="button" @click="firstClue()">PLAY</button>
 
 </div>
 </template>
 
 <script>
+import { eventBus } from '@/main.js'
+
 export default {
   name: 'setup',
   data(){
@@ -29,6 +32,10 @@ export default {
       if(this.players > 2){
         this.players -= 1
       }
+    },
+
+    firstClue(){
+      eventBus.$emit('first-clue', this.players);
     }
   }
 }

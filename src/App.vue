@@ -5,6 +5,7 @@
     <needed v-if="this.displayNeeded"/>
     <rules v-if="this.displayRules"/>
     <setup v-if="this.displaySetup"/>
+    <clues v-if="this.displayClues" :clues="clues" :players="players"/>
 
   </div>
 </template>
@@ -15,6 +16,7 @@ import Rules from './components/Rules.vue'
 import Needed from './components/Needed.vue'
 import Navigation from './components/Navigation.vue'
 import Setup from './components/Setup.vue'
+import Clues from './components/Clues.vue'
 import { eventBus } from '@/main.js'
 
 export default {
@@ -24,7 +26,11 @@ export default {
       displayHome: true,
       displayNeeded: false,
       displayRules: false,
-      displaySetup: false
+      displaySetup: false,
+      players: null,
+      displayClues: false,
+      clues: ['clue 1', 'clue 2', 'clue 3']
+
     }
   },
   components: {
@@ -32,7 +38,9 @@ export default {
     rules: Rules,
     needed: Needed,
     navigation: Navigation,
-    setup: Setup
+    setup: Setup,
+    clues: Clues
+
   },
 
   mounted(){
@@ -41,6 +49,7 @@ export default {
       this.displayRules = false;
       this.displayNeeded = false;
       this.displaySetup = false;
+      this.displayClues = false;
     })
 
     eventBus.$on('play-game', (display) => {
@@ -56,6 +65,12 @@ export default {
     eventBus.$on('display-setup', (display) => {
       this.displaySetup = display;
       this.displayRules = false;
+    })
+
+    eventBus.$on('first-clue', (players) => {
+      this.players = players;
+      this.displaySetup = false;
+      this.displayClues = true;
     })
 
   }
@@ -99,7 +114,7 @@ button {
   font-size: 16px;
   font-family: "Ubuntu", sans-serif;
 
-  border:1px solid #E8E8E8;  
+  border:1px solid #E8E8E8;
   box-shadow:2px 3px 3px rgba(0, 0, 0, 0.40);
 }
 
