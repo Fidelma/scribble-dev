@@ -120,11 +120,7 @@ button {
   font-family: "Ubuntu", sans-serif;
   margin-left: auto;
   margin-right: auto;
-<<<<<<< HEAD
   border:1px solid #E8E8E8;
-=======
-  border:1px solid #E8E8E8;  
->>>>>>> master
   box-shadow:2px 3px 3px rgba(0, 0, 0, 0.40);
 }
 
