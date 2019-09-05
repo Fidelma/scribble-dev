@@ -4,6 +4,7 @@
     <home v-if="this.displayHome"/>
     <needed v-if="this.displayNeeded"/>
     <rules v-if="this.displayRules"/>
+    <setup v-if="this.displaySetup"/>
 
   </div>
 </template>
@@ -13,6 +14,7 @@ import Home from './components/Home.vue'
 import Rules from './components/Rules.vue'
 import Needed from './components/Needed.vue'
 import Navigation from './components/Navigation.vue'
+import Setup from './components/Setup.vue'
 import { eventBus } from '@/main.js'
 
 export default {
@@ -21,17 +23,26 @@ export default {
     return {
       displayHome: true,
       displayNeeded: false,
-      displayRules: false
+      displayRules: false,
+      displaySetup: false
     }
   },
   components: {
     home: Home,
     rules: Rules,
     needed: Needed,
-    navigation: Navigation
+    navigation: Navigation,
+    setup: Setup
   },
 
   mounted(){
+    eventBus.$on('home-setup', (display) => {
+      this.displayHome = true;
+      this.displayRules = false;
+      this.displayNeeded = false;
+      this.displaySetup = false;
+    })
+
     eventBus.$on('play-game', (display) => {
       this.displayHome = display;
       this.displayNeeded = true;
@@ -42,11 +53,11 @@ export default {
       this.displayNeeded = false;
     })
 
-    eventBus.$on('home-setup', (display) => {
-      this.displayHome = true;
+    eventBus.$on('display-setup', (display) => {
+      this.displaySetup = display;
       this.displayRules = false;
-      this.displayNeeded = false;
     })
+
   }
 }
 </script>
