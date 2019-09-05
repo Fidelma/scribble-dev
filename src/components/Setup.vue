@@ -6,13 +6,11 @@
   <button type="button" @click="removePlayer()">-</button>
   <div class="">
     <p>{{this.players}}</p>
-  </div>
-  <button type="button" @click="addPlayer()">+</button>
-  <button type="button" @click="firstClue()">PLAY</button>
 </div>
+  <button type="button" @click="addPlayer()">+</button>
+  </div>
 
-=======
->>>>>>> master
+  <button type="button" @click="firstClue()">PLAY</button>
 </div>
 </template>
 
