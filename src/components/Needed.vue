@@ -1,12 +1,15 @@
 <template lang="html">
-  <div class="">
-
-  <h2>A stack of post-it notes</h2>
-  <h2>Something hard to lean against x number of players</h2>
-  <h2>pencils or pens x number of players</h2>
-  <button type="button" @click="displayRules()">Rules</button>
-
-</div>
+  <div>
+    <h1>What you'll need:</h1>
+    <div class="needed">
+      <h2>1. A stack of Post-itⓇ notes.</h2>
+      <h2>2. Something stiff for each player to draw against.</h2>
+      <h2>3. One pen per player.</h2>
+    </div>
+    <div>
+      <button type="button" @click="displayRules()">Rules</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -22,4 +25,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+.needed {
+  padding-bottom: 0px;
+  text-align: left;
+  margin: 40px;
+}
 </style>
