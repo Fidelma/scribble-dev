@@ -6,7 +6,7 @@
   <h2>Pass it on</h2>
   <div class="button-row">
     <button type="button" @click="displayNeeded()">What you need</button>
-    <button type="button" @click="displaySetup()">Let's Go!</button>
+    <button type="button" @click="displayDecks()">Let's Go!</button>
   </div>
 
 
@@ -19,7 +19,7 @@ import {eventBus} from '@/main.js'
 export default {
   name: 'rules',
   methods: {
-    displaySetup(){
+    displayDecks(){
       eventBus.$emit('display-decks', true)
     }
   }

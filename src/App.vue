@@ -35,7 +35,8 @@ export default {
       players: null,
       displayClues: false,
       clues: [],
-      // deckTypes: []
+      deckTypesArray: [],
+      cluesIncluded: []
 
     }
   },
@@ -53,6 +54,7 @@ export default {
   mounted(){
 
    this.loadClues();
+   this.getDecks();
 
     eventBus.$on('home-setup', (display) => {
       this.displayHome = display;
@@ -63,6 +65,7 @@ export default {
     })
 
     eventBus.$on('display-needed', (display) => {
+      this.getDecks();
       this.displayHome = false;
       this.displayNeeded = display;
       this.displayRules = false;
@@ -91,6 +94,11 @@ export default {
       this.displayClues = true;
     })
 
+    eventBus.$on('display-setup', (display) => {
+      this.displaySetup = display;
+      this.displayDecks = false;
+    })
+
   },
 
   methods: {
@@ -98,20 +106,36 @@ export default {
       fetch('./data/clues.JSON')
       .then(res => res.json())
       .then(returnedData => this.clues = returnedData.clueCollection);
-    }
-  },
-
-  computed: {
-    deckTypesArray: function(){
+    },
+    getDecks(){
       const deckTypes = [];
+      const tempDecks = [];
       for(const i in this.clues){
-        if(!deckTypes.includes(this.clues[i].deck)){
-          deckTypes.push(this.clues[i].deck);
+        console.log("hello");
+        if(!tempDecks.includes(this.clues[i].deck)){
+          const deck = this.clues[i].deck;
+          deckTypes.push({deck: deck, enabled: false});
+          tempDecks.push(deck);
         }
       }
-      return deckTypes;
+      this.deckTypesArray = deckTypes;
     }
   }
+
+  // computed: {
+  //   deckTypesArray: function(){
+  //     const deckTypes = [];
+  //     const tempDecks = [];
+  //     for(const i in this.clues){
+  //       if(!tempDecks.includes(this.clues[i].deck)){
+  //         const deck = this.clues[i].deck;
+  //         deckTypes.push({deck: deck, enabled: false});
+  //         tempDecks.push(deck);
+  //       }
+  //     }
+  //     return deckTypes;
+  //   }
+  // }
 }
 </script>
 
