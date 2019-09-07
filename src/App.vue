@@ -114,10 +114,16 @@ body {
 #content {
   display: flex;
   text-align: center;
+  align-self: center;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 600px;
 }
 
 button {
