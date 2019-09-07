@@ -5,7 +5,11 @@
     <div class="scribble">Scribble</div>
     <div class="handwritten">A game of bad drawings</div>
   </div>
-  <button type="button" name="button" @click="startPlay()">Play!</button>
+  <div class="button-row">
+  <button type="button" @click="firstClue()">How to play</button>
+  <button type="button" name="button" @click="startPlay()">Start!</button>
+  </div>
+
 
   </div>
 </template>

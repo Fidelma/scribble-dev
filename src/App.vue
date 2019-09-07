@@ -125,6 +125,16 @@ body {
   padding-right: 10px;
   max-width: 600px;
 }
+.button-row {
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button-row > button {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 button {
   background-color: #ffff99; /* Green */
@@ -138,7 +148,7 @@ button {
   font-family: "Ubuntu", sans-serif;
   margin-left: auto;
   margin-right: auto;
-
+  display: inline-block;
   margin-top: auto;
   margin-bottom: auto;
   border:1px solid #E8E8E8;

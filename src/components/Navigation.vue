@@ -4,7 +4,7 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
         <div class="navlink" @click="homeSetup()">Home</div>
-        <div class="navlink" @click="rulesSetup()">Rules</div>
+        <div class="navlink" @click="rulesSetup()">How&nbsp;to&nbsp;play</div>
         <div class="by">Fidelma&nbsp;&&nbsp;Filip</div>
       </div>
   </div>
