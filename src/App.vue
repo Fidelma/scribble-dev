@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <navigation class="nav" ></navigation>
+    <div id="content">
     <home v-if="this.displayHome"/>
     <needed v-if="this.displayNeeded"/>
     <rules v-if="this.displayRules"/>
     <setup v-if="this.displaySetup"/>
     <clues v-if="this.displayClues" :clues="clues" :players="players"/>
+    </div>
 
   </div>
 </template>
@@ -78,33 +80,33 @@ export default {
 </script>
 
 <style>
-.nav {
-  background-color: red;
-  display: flex;
-
-}
-
 body {
   margin: 0;
+}
+
+.handwritten {
+  font-family: 'Kalam', cursive;
 }
 
 #app {
   font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   background-color: #e6ffff;
   min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+}
+
+#content {
   display: flex;
+  text-align: center;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-
+  min-height: 100vh;
 }
 
 button {
