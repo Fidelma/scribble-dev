@@ -23,7 +23,7 @@ export default {
       this.closeNav();
     },
     openNav() {
-      document.getElementById("mySidenav").style.width = "40%";
+      document.getElementById("mySidenav").style.width = "180px";
     },
     closeNav() {
       document.getElementById("mySidenav").style.width = "0";
@@ -36,7 +36,7 @@ export default {
 .sidenav {
   display: flex;
   flex-direction: column;
-  height: 92vh;
+  min-height: 100vh;
   width: 0;
   position: fixed;
   z-index: 1;
@@ -45,8 +45,8 @@ export default {
   background-color: #ffffaa;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
-  margin-bottom: -160px;
+  /*padding-top: 60px;*/
+  /*margin-bottom: -160px;*/
   text-align:left;
   color: black;
 }
@@ -63,7 +63,7 @@ export default {
   padding: 8px 8px 8px 20px;
   text-decoration: none;
   font-size: 25px;
-  display: block;
+  /*display: block;*/
   transition: 0.3s;
   cursor: pointer;
 
@@ -73,11 +73,15 @@ export default {
   background-color: #eeee88;
 }
 .sidenav .closebtn {
-  position: absolute;
+  /*position: absolute;*/
   padding-left: 20px;
   top: 0;
   font-size: 2em;
   cursor: pointer;
+}
+
+.closebtn:hover {
+  
 }
 
 .hamburger {
@@ -91,8 +95,8 @@ export default {
   color: gray;
   font-size: 12px;
   text-align: left;
-  padding-bottom: 25px;
-  padding-left: 45px;
+  padding-bottom: 1em;
+  padding-left: 50px;
   padding-right: auto;
   margin-top: auto;
   margin-botton: auto;
