@@ -5,7 +5,7 @@
         <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
         <div class="navlink" @click="homeSetup()">Home</div>
         <div class="navlink" @click="rulesSetup()">Rules</div>
-        <div class="by">Fidelma and Filip</div>
+        <div class="by">Fidelma&nbsp;&&nbsp;Filip</div>
       </div>
   </div>
     <span class="hamburger" @click="openNav()">&#9776;</span>
@@ -42,7 +42,7 @@ export default {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #ffff88;
+  background-color: #ffffaa;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -90,8 +90,10 @@ export default {
 .by {
   color: gray;
   font-size: 12px;
-  text-align: center;
-  padding-bottom: 20px;
+  text-align: left;
+  padding-bottom: 25px;
+  padding-left: 45px;
+  padding-right: auto;
   margin-top: auto;
   margin-botton: auto;
 }
