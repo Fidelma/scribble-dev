@@ -1,0 +1,52 @@
+{
+   "clueCollection":[
+      {
+         "text":"a tractor with a trailer on the back.",
+         "deck":"child"
+      },
+      {
+         "text":"A dolphin jumping next to a boat.",
+         "deck":"child"
+      },
+      {
+         "text":"a woman typing at a computer.",
+         "deck":"child"
+      },
+      {
+         "text":"something else I can't think.",
+         "deck":"child"
+      },
+      {
+         "text":"Something adult and boring.",
+         "deck":"adult"
+      },
+      {
+         "text":"something else adult and boring",
+         "deck":"adult"
+      },
+      {
+         "text":"A third boring adult thing.",
+         "deck":"adult"
+      },
+      {
+         "text":"and finally yet another boring adult thing.",
+         "deck":"adult"
+      },
+      {
+         "text":"Something adult and exciting.",
+         "deck":"nsfw"
+      },
+      {
+         "text":"something else adult and nsfw",
+         "deck":"nsfw"
+      },
+      {
+         "text":"A third un-pc adult thing.",
+         "deck":"nsfw"
+      },
+      {
+         "text":"and finally yet another edgy adult thing.",
+         "deck":"nsfw"
+      }
+   ]
+}

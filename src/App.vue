@@ -29,7 +29,7 @@ export default {
       displaySetup: false,
       players: null,
       displayClues: false,
-      clues: ['clue 1', 'clue 2', 'clue 3']
+      clues: []
 
     }
   },
@@ -44,6 +44,9 @@ export default {
   },
 
   mounted(){
+
+   this.loadClues();
+
     eventBus.$on('home-setup', (display) => {
       this.displayHome = true;
       this.displayRules = false;
@@ -73,6 +76,14 @@ export default {
       this.displayClues = true;
     })
 
+  },
+
+  methods: {
+    loadClues(){
+      fetch('@/assets/data/clues.json')
+      .then(res => res.json())
+      .then(returnedData => this.clues = returnedData.clueCollection);
+    }
   }
 }
 </script>
