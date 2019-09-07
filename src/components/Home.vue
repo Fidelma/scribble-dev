@@ -6,7 +6,7 @@
     <div class="handwritten">A game of bad drawings</div>
   </div>
   <div class="button-row">
-  <button type="button" @click="firstClue()">How to play</button>
+  <button type="button" @click="goToHowTo()">How to play</button>
   <button type="button" name="button" @click="startPlay()">Start!</button>
   </div>
 
@@ -21,9 +21,13 @@ export default {
   name: "home",
   methods: {
     startPlay(){
-      const display = false;
-      eventBus.$emit('play-game', display)
-    }
+      eventBus.$emit('display-needed', true)
+    },
+    goToHowTo(){
+      eventBus.$emit('display-rules', true);
+      this.closeNav();
+    },
+
   }
 }
 </script>

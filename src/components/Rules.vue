@@ -4,8 +4,11 @@
   <h2>Rule1</h2>
   <h2>Rule2</h2>
   <h2>Rule3</h2>
+  <div class="button-row">
+    <button type="button" @click="displayNeeded()">What you need</button>
+    <button type="button" @click="displaySetup()">Let's Go!</button>
+  </div>
 
-  <button type="button" @click="displaySetup()">Let's Go!</button>
 
 </div>
 </template>
@@ -18,7 +21,10 @@ export default {
   methods: {
     displaySetup(){
       eventBus.$emit('display-setup', true)
-    }
+    },
+    displayNeeded(){
+      eventBus.$emit('display-needed', true)
+    }    
   }
 }
 </script>

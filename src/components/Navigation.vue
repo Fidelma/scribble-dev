@@ -3,8 +3,9 @@
   <div class="nav">
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
-        <div class="navlink" @click="homeSetup()">Home</div>
-        <div class="navlink" @click="rulesSetup()">How&nbsp;to&nbsp;play</div>
+        <div class="navlink" @click="goHome()">Home</div>
+        <div class="navlink" @click="goToHowTo()">How&nbsp;to&nbsp;play</div>
+        <div class="navlink" @click="goToNeeded()">What&nbsp;you need</div>
         <div class="by">Fidelma&nbsp;&&nbsp;Filip</div>
       </div>
   </div>
@@ -14,12 +15,19 @@
 
 <script>
 import {eventBus} from '@/main.js'
-
 export default {
   name: 'navigation',
   methods: {
-    homeSetup(){
+    goHome(){
       eventBus.$emit('home-setup', true);
+      this.closeNav();
+    },
+    goToHowTo(){
+      eventBus.$emit('display-rules', true);
+      this.closeNav();
+    },
+    goToNeeded(){
+      eventBus.$emit('display-needed', true);
       this.closeNav();
     },
     openNav() {

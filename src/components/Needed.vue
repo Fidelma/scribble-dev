@@ -9,7 +9,9 @@
       </ol>
     </div>
     <div>
+      <div class="button-row">
       <button type="button" @click="displayRules()">How to play</button>
+      </div>
     </div>
   </div>
 </template>
