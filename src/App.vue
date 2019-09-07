@@ -50,21 +50,28 @@ export default {
    this.loadClues();
 
     eventBus.$on('home-setup', (display) => {
-      this.displayHome = true;
-      this.displayRules = false;
+      this.displayHome = display;
       this.displayNeeded = false;
+      this.displayRules = false;
       this.displaySetup = false;
       this.displayClues = false;
     })
 
-    eventBus.$on('play-game', (display) => {
-      this.displayHome = display;
-      this.displayNeeded = true;
+    eventBus.$on('display-needed', (display) => {
+      this.displayHome = false;
+      this.displayNeeded = display;
+      this.displayRules = false;
+      this.displaySetup = false;
+      this.displayClues = false;
+
     })
 
     eventBus.$on('display-rules', (display) => {
-      this.displayRules = display;
+      this.displayHome = false;
       this.displayNeeded = false;
+      this.displayRules = display;
+      this.displaySetup = false;
+      this.displayClues = false;
     })
 
     eventBus.$on('display-setup', (display) => {
