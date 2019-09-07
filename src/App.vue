@@ -5,6 +5,7 @@
     <home v-if="this.displayHome"/>
     <needed v-if="this.displayNeeded"/>
     <rules v-if="this.displayRules"/>
+    <decks v-if="this.displayDecks" :deckTypesArray="deckTypesArray"/>
     <setup v-if="this.displaySetup"/>
     <clues v-if="this.displayClues" :clues="clues" :players="players"/>
     </div>
@@ -19,6 +20,7 @@ import Needed from './components/Needed.vue'
 import Navigation from './components/Navigation.vue'
 import Setup from './components/Setup.vue'
 import Clues from './components/Clues.vue'
+import Decks from './components/Decks.vue'
 import { eventBus } from '@/main.js'
 
 export default {
@@ -28,10 +30,12 @@ export default {
       displayHome: true,
       displayNeeded: false,
       displayRules: false,
+      displayDecks: false,
       displaySetup: false,
       players: null,
       displayClues: false,
-      clues: []
+      clues: [],
+      // deckTypes: []
 
     }
   },
@@ -41,7 +45,8 @@ export default {
     needed: Needed,
     navigation: Navigation,
     setup: Setup,
-    clues: Clues
+    clues: Clues,
+    decks: Decks
 
   },
 
@@ -74,9 +79,10 @@ export default {
       this.displayClues = false;
     })
 
-    eventBus.$on('display-setup', (display) => {
-      this.displaySetup = display;
+    eventBus.$on('display-decks', (display) => {
+      this.displayDecks = display;
       this.displayRules = false;
+
     })
 
     eventBus.$on('first-clue', (players) => {
@@ -92,6 +98,18 @@ export default {
       fetch('./data/clues.JSON')
       .then(res => res.json())
       .then(returnedData => this.clues = returnedData.clueCollection);
+    }
+  },
+
+  computed: {
+    deckTypesArray: function(){
+      const deckTypes = [];
+      for(const i in this.clues){
+        if(!deckTypes.includes(this.clues[i].deck)){
+          deckTypes.push(this.clues[i].deck);
+        }
+      }
+      return deckTypes;
     }
   }
 }

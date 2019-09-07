@@ -1,5 +1,5 @@
 <template lang="html">
-  <p>{{this.currentClue}}</p>
+  <p>{{this.currentClue.text}}</p>
 
 </template>
 

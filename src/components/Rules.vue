@@ -20,11 +20,8 @@ export default {
   name: 'rules',
   methods: {
     displaySetup(){
-      eventBus.$emit('display-setup', true)
-    },
-    displayNeeded(){
-      eventBus.$emit('display-needed', true)
-    }    
+      eventBus.$emit('display-decks', true)
+    }
   }
 }
 </script>
