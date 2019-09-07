@@ -1,12 +1,17 @@
 <template lang="html">
-  <div class="">
-
-  <h2>A stack of post-it notes</h2>
-  <h2>Something hard to lean against x number of players</h2>
-  <h2>pencils or pens x number of players</h2>
-  <button type="button" @click="displayRules()">Rules</button>
-
-</div>
+  <div>
+    <h1>What you'll need:</h1>
+    <div class="needed">
+      <ol>
+        <li>A stack of Post-itⓇ notes.</li>
+        <li>Something stiff for each player to draw against.</li>
+        <li>One pen per player.</li>
+      </ol>
+    </div>
+    <div>
+      <button type="button" @click="displayRules()">How to play</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -22,4 +27,21 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+.needed {
+  padding-bottom: 0px;
+  text-align: left;
+  margin: 20px;
+}
+
+.needed ol {
+  list-style-position: outside;
+}
+
+li {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 1em;
+}
+
 </style>

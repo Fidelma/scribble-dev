@@ -1,7 +1,10 @@
 <template lang="html">
   <div class="home">
 
-  <div class="postit"><h1>Scribble</h1></div>
+  <div class="postit">
+    <div class="scribble">Scribble</div>
+    <div class="handwritten">A game of bad drawings</div>
+  </div>
   <button type="button" name="button" @click="startPlay()">Play!</button>
 
   </div>
@@ -27,6 +30,12 @@ export default {
   flex-direction: column;
 }
 
+.scribble {
+  font-size: 52px;
+  padding: 10px;
+  padding-bottom: 25px;
+}
+
 .postit {
 animation: postit-spin infinite 0.5s ease-in-out;
 /*animation-iteration-count: 3;*/
@@ -42,7 +51,7 @@ max-height:200px;
 padding-top: 25px;
 position:relative;   
 border:1px solid #E8E8E8;  
-border-top:30px solid #fdfd86;
+border-top:20px solid #fdfd86;
 font-family:'Ubuntu';
 font-size:32px;      
 border-bottom-right-radius: 60px 5px;

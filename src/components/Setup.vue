@@ -1,16 +1,15 @@
 <template lang="html">
   <div class="">
-
-  <h1>How many playing?</h1>
-  <div class="selector">
-  <button type="button" @click="removePlayer()">-</button>
-  <div class="">
-    <p>{{this.players}}</p>
-</div>
-  <button type="button" @click="addPlayer()">+</button>
-  </div>
-
-  <button type="button" @click="firstClue()">PLAY</button>
+    <h1>How many playing?</h1>
+    <div class="selector">
+      <button id="remove" type="button" @click="removePlayer()">-</button>
+      <div class="players">
+        <p>{{this.players}}</p>
+      </div>
+      <button id="add" type="button" @click="addPlayer()">+</button>
+    </div>
+  <br>
+  <button type="button" @click="firstClue()">Play</button>
 </div>
 </template>
 
@@ -49,7 +48,16 @@ export default {
 .selector {
   padding-top: 10px;
   padding-bottom: 10px;
+  font-size: 42px;
+  font-weight: bold;
   display: flex;
 }
 
+#add {
+  font-size: 42px;
+}
+
+#remove {
+  font-size: 42px;
+}
 </style>
