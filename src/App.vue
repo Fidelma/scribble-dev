@@ -80,7 +80,7 @@ export default {
 
   methods: {
     loadClues(){
-      fetch('@/assets/data/clues.json')
+      fetch('./data/clues.JSON')
       .then(res => res.json())
       .then(returnedData => this.clues = returnedData.clueCollection);
     }
