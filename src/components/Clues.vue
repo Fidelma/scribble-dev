@@ -1,14 +1,13 @@
 <template lang="html">
   <div class="">
-
-<div class="" v-if="displayClue">
-
-  <clue :currentClue="this.clues[this.player]"/>
-
-  <button type="button" @click="nextPlayer()">Next Player</button>
-
-</div>
-</div>
+    <h1>Player {{this.player+1}}</h1>
+    <h3>Tap and hold to reveal your clue</h3>
+    <div class="clue" v-if="displayClue">
+      <clue :currentClue="this.clues[this.player]"/>
+    </div>
+    <h3>Write it down on your Post-it.</h3>
+    <button type="button" @click="nextPlayer()">Next Player</button>
+  </div>
 </template>
 
 <script>
@@ -41,4 +40,16 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.clue {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-size: 1.5em;
+  background-color: #ffff99;
+  color: #ffff99;
+  box-shadow:1px 1px 1px rgba(0, 0, 0, 0.40);  
+}
+
+.clue:active {
+  color: black;
+}
 </style>
