@@ -121,11 +121,18 @@ button {
   font-family: "Ubuntu", sans-serif;
   margin-left: auto;
   margin-right: auto;
+
+  margin-top: auto;
+  margin-bottom: auto;
   border:1px solid #E8E8E8;
   box-shadow:2px 3px 3px rgba(0, 0, 0, 0.40);
+  cursor: pointer;
 }
 
 button:hover {
+  background-color: #f2f2a6;
+}
+button:active {
   box-shadow:1px 1px 1px rgba(0, 0, 0, 0.40);
 }
 </style>
