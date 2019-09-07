@@ -17,7 +17,7 @@ export default {
   name: 'rules',
   methods: {
     displaySetup(){
-      eventBus.$emit('display-setup', true)
+      eventBus.$emit('display-decks', true)
     }
   }
 }
