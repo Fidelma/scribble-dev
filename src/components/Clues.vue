@@ -5,7 +5,7 @@
     <div class="clue" v-if="displayClue">
       <clue :currentClue="this.clues[this.player]"/>
     </div>
-    <h3>Write it down on your Post-it and pass it on.</h3>
+    <h3>Write it down on your Post-it.</h3>
     <button type="button" @click="nextPlayer()">Next Player</button>
   </div>
 </template>

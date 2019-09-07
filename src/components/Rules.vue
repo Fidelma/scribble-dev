@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="">
 
-  <h2>Rule1</h2>
-  <h2>Rule2</h2>
-  <h2>Rule3</h2>
+  <h2>Start with a clue</h2>
+  <h2>Doodle it</h2>
+  <h2>Pass it on</h2>
   <div class="button-row">
     <button type="button" @click="displayNeeded()">What you need</button>
     <button type="button" @click="displaySetup()">Let's Go!</button>
