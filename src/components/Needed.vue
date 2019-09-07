@@ -2,12 +2,14 @@
   <div>
     <h1>What you'll need:</h1>
     <div class="needed">
-      <h2>1. A stack of Post-itⓇ notes.</h2>
-      <h2>2. Something stiff for each player to draw against.</h2>
-      <h2>3. One pen per player.</h2>
+      <ol>
+        <li>A stack of Post-itⓇ notes.</li>
+        <li>Something stiff for each player to draw against.</li>
+        <li>One pen per player.</li>
+      </ol>
     </div>
     <div>
-      <button type="button" @click="displayRules()">Rules</button>
+      <button type="button" @click="displayRules()">How to play</button>
     </div>
   </div>
 </template>
@@ -29,6 +31,17 @@ export default {
 .needed {
   padding-bottom: 0px;
   text-align: left;
-  margin: 40px;
+  margin: 20px;
 }
+
+.needed ol {
+  list-style-position: outside;
+}
+
+li {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 1em;
+}
+
 </style>
