@@ -1,12 +1,9 @@
 <template lang="html">
   <div class="">
+  	<h1>Pick your prompts</h1>
 	<div class="decks">
     <button v-for="i in this.deckTypesArray" name="button">{{i}}</button>
     </div>
-
-
-
-
   </div>
 </div>
 
