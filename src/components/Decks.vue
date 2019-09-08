@@ -1,19 +1,11 @@
 <template lang="html">
   <div class="">
-<<<<<<< HEAD
 
-    <button v-for="(i, index) in this.deckTypesArray" @click="toggleDeck(index)">{{i.deck}}</button>
-    <button type="button" @click="displaySetup()">Number of Players</button>
-
-
-
-
-=======
   	<h1>Pick your prompts</h1>
-	<div class="decks">
-    <button v-for="i in this.deckTypesArray" name="button">{{i}}</button>
+  	<div class="decks">
+      <button v-for="(i, index) in this.deckTypesArray" @click="toggleDeck(index)">{{i.deck}}</button>
     </div>
->>>>>>> master
+    <button type="button" @click="displaySetup()">Number of Players</button>
   </div>
 </div>
 
