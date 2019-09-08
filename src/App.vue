@@ -157,24 +157,28 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   max-width: 600px;
+  overflow: hidden;
 }
 .button-row {
   flex-direction: row;
   margin-left: auto;
   margin-right: auto;
+  padding-left: auto;
+  padding-right: auto;
+
 }
 
 .button-row > button {
   margin: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 button {
   background-color: #ffff99; /* Green */
   border: solid 1px black;
   color: black;
-  padding: 15px 35px;
+  padding: 15px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
