@@ -48,6 +48,7 @@ export default {
   background-color: #ffff99;
   color: #ffff99;
   box-shadow:1px 1px 1px rgba(0, 0, 0, 0.40);  
+  cursor: pointer;
 }
 
 .clue:active {
