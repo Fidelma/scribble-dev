@@ -1,11 +1,12 @@
 <template lang="html">
   <div class="">
-
   	<h1>Pick your prompts</h1>
   	<div class="decks">
-      <button v-for="(i, index) in this.deckTypesArray" @click="toggleDeck(index)">{{i.deck}}</button>
+      <button v-for="(i, index) in this.deckTypesArray" :id=i.deck @click="toggleDeck(index)">{{i.deck}}<span class="tick">&#10003;</span></button>
     </div>
-    <button type="button" @click="displaySetup()">Number of Players</button>
+    <div class="button-row">
+	    <button type="button" @click="displaySetup()">Done</button>
+    </div>
   </div>
 </div>
 
@@ -26,10 +27,16 @@ export default {
     displaySetup(){
       eventBus.$emit('display-setup', true);
     },
-
     toggleDeck(index){
-      console.log(this.deckTypesArray[index].enabled);
       this.deckTypesArray[index].enabled = !this.deckTypesArray[index].enabled;
+      console.log(this.deckTypesArray[index].enabled);
+      var el = document.getElementById(this.deckTypesArray[index].deck);
+      if (this.deckTypesArray[index].enabled) {
+	      el.firstElementChild.style.color = "black";
+      } else {
+	      el.firstElementChild.style.color = "rgba(0,0,0,0)";
+      }
+
     }
   }
 
@@ -49,10 +56,20 @@ export default {
 .decks > button {
 	font-size: 28px;
 	text-align: center;
-	padding-left: auto;
-	padding-right: auto;
+	position: relative;
 	margin: 10px;
-	min-width: 6em;
-	height: 6em;
+	min-width: 5em;
+	height: 5em;
 }
+
+.tick {
+  overflow: hidden;
+  margin-left: -5px;
+  margin-top: -40px;
+  position: absolute;
+  top: 0;
+  font-size: 3em;
+  color: rgba(0,0,0,0);
+}
+
 </style>
