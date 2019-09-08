@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <navigation class="nav" ></navigation>
-    <div id="content">
+    <div id="content" @click="closeNav()">
     <home v-if="this.displayHome"/>
     <needed v-if="this.displayNeeded"/>
     <rules v-if="this.displayRules"/>
@@ -62,6 +62,7 @@ export default {
       this.displayRules = false;
       this.displaySetup = false;
       this.displayClues = false;
+      this.displayDecks = false;
     })
 
     eventBus.$on('display-needed', (display) => {
@@ -71,7 +72,7 @@ export default {
       this.displayRules = false;
       this.displaySetup = false;
       this.displayClues = false;
-
+      this.displayDecks = false;
     })
 
     eventBus.$on('display-rules', (display) => {
@@ -80,10 +81,14 @@ export default {
       this.displayRules = display;
       this.displaySetup = false;
       this.displayClues = false;
+      this.displayDecks = false;
+
     })
 
     eventBus.$on('display-decks', (display) => {
+      this.displayHome = false;
       this.displayDecks = display;
+      this.displayNeeded = false;
       this.displayRules = false;
 
     })
@@ -106,6 +111,9 @@ export default {
       fetch('./data/clues.JSON')
       .then(res => res.json())
       .then(returnedData => this.clues = returnedData.clueCollection);
+    },
+    closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
     },
     getDecks(){
       const deckTypes = [];
@@ -173,23 +181,28 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   max-width: 600px;
+  overflow: hidden;
 }
 .button-row {
   flex-direction: row;
   margin-left: auto;
   margin-right: auto;
+  padding-left: auto;
+  padding-right: auto;
+
 }
 
 .button-row > button {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 button {
   background-color: #ffff99; /* Green */
   border: solid 1px black;
   color: black;
-  padding: 15px 35px;
+  padding: 15px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
