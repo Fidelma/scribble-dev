@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <navigation class="nav" ></navigation>
-    <div id="content">
+    <div id="content" @click="closeNav()">
     <home v-if="this.displayHome"/>
     <needed v-if="this.displayNeeded"/>
     <rules v-if="this.displayRules"/>
@@ -98,6 +98,9 @@ export default {
       fetch('./data/clues.JSON')
       .then(res => res.json())
       .then(returnedData => this.clues = returnedData.clueCollection);
+    },
+    closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
     }
   },
 
