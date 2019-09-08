@@ -60,6 +60,7 @@ export default {
       this.displayRules = false;
       this.displaySetup = false;
       this.displayClues = false;
+      this.displayDecks = false;
     })
 
     eventBus.$on('display-needed', (display) => {
@@ -68,7 +69,7 @@ export default {
       this.displayRules = false;
       this.displaySetup = false;
       this.displayClues = false;
-
+      this.displayDecks = false;
     })
 
     eventBus.$on('display-rules', (display) => {
@@ -77,10 +78,14 @@ export default {
       this.displayRules = display;
       this.displaySetup = false;
       this.displayClues = false;
+      this.displayDecks = false;
+
     })
 
     eventBus.$on('display-decks', (display) => {
+      this.displayHome = false;
       this.displayDecks = display;
+      this.displayNeeded = false;
       this.displayRules = false;
 
     })
@@ -160,6 +165,7 @@ body {
 }
 
 .button-row > button {
+  margin: 10px;
   margin-left: 10px;
   margin-right: 10px;
 }
