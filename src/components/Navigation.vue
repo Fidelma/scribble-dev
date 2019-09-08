@@ -2,10 +2,10 @@
   <div>
   <div class="nav">
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
+        <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&#10799;</a>
         <div class="navlink" @click="goHome()">Home</div>
         <div class="navlink" @click="goToHowTo()">How&nbsp;to&nbsp;play</div>
-        <div class="navlink" @click="goToNeeded()">What&nbsp;you need</div>
+        <div class="navlink" @click="goToNeeded()">What&nbsp;you&nbsp;need</div>
         <div class="by">Fidelma&nbsp;&&nbsp;Filip</div>
       </div>
   </div>
@@ -50,6 +50,7 @@ export default {
   z-index: 1;
   top: 0;
   left: 0;
+  padding-top: 10px;
   background-color: #ffffaa;
   overflow-x: hidden;
   transition: 0.5s;
@@ -61,7 +62,7 @@ export default {
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 1em;
   color: black;
   display: block;
   transition: 0.3s;
@@ -70,7 +71,7 @@ export default {
 .sidenav .navlink {
   padding: 8px 8px 8px 20px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 1em;
   /*display: block;*/
   transition: 0.3s;
   cursor: pointer;
@@ -84,7 +85,7 @@ export default {
   /*position: absolute;*/
   padding-left: 20px;
   top: 0;
-  font-size: 2em;
+  /*font-size: 2em;*/
   cursor: pointer;
 }
 
@@ -93,9 +94,9 @@ export default {
 }
 
 .hamburger {
-  margin: 15px;
+  margin: 20px;
   position: absolute;
-  font-size: 1.5em;
+  font-size: 1em;
   cursor: pointer;
 }
 
