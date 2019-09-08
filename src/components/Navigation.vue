@@ -6,7 +6,7 @@
         <div class="navlink" @click="goHome()">Home</div>
         <div class="navlink" @click="goToHowTo()">How&nbsp;to&nbsp;play</div>
         <div class="navlink" @click="goToNeeded()">What&nbsp;you&nbsp;need</div>
-        <div class="by">Fidelma&nbsp;&&nbsp;Filip</div>
+        <div class="by">By <a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
       </div>
   </div>
     <span class="hamburger" @click="openNav()">&#9776;</span>
@@ -104,10 +104,16 @@ export default {
   color: gray;
   font-size: 12px;
   text-align: left;
-  padding-bottom: 1em;
+  padding-bottom: 2em;
   padding-left: 50px;
   padding-right: auto;
   margin-top: auto;
   margin-botton: auto;
+}
+.by > a {
+  color: gray;
+  text-decoration: underline;
+  display: inline;
+  padding: 0;
 }
 </style>
