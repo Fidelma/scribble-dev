@@ -85,7 +85,7 @@ export default {
   /*position: absolute;*/
   padding-left: 20px;
   top: 0;
-  /*font-size: 2em;*/
+  font-size: 1em;
   cursor: pointer;
 }
 
