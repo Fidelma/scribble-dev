@@ -1,15 +1,20 @@
 <template>
   <div id="app">
     <navigation class="nav" ></navigation>
-    <div id="content" @click="closeNav()">
+    <!-- <div id="content" @click="closeNav()">
     <home v-if="this.displayHome"/>
     <needed v-if="this.displayNeeded"/>
     <rules v-if="this.displayRules"/>
     <decks v-if="this.displayDecks" :deckTypesArray="deckTypesArray"/>
     <setup v-if="this.displaySetup"/>
     <clues v-if="this.displayClues" :clues="clues" :players="players"/>
-    </div>
+    </div> -->
+    <div id="content">
 
+
+      <router-view></router-view>
+
+    </div>
   </div>
 </template>
 
