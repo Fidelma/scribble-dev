@@ -74,7 +74,9 @@ export default {
   color: black;
 }
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
   text-decoration: none;
   font-size: 1em;
   color: black;
