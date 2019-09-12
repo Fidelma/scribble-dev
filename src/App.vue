@@ -115,4 +115,9 @@ button:hover {
 button:active {
   box-shadow:1px 1px 1px rgba(0, 0, 0, 0.40);
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
 </style>
