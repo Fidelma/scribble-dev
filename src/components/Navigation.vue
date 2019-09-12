@@ -3,6 +3,7 @@
   <div class="nav">
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&#10799;</a>
+<<<<<<< HEAD
         
         <div class="navlink" @click="closeNav()">
           <router-link :to="{ name: 'home'}">Home</router-link>
@@ -21,6 +22,12 @@
         </div>
 
         <div class="by">By <a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
+=======
+        <div class="navlink" @click="goHome()">Home</div>
+        <div class="navlink" @click="goToHowTo()">How&nbsp;to&nbsp;play</div>
+        <div class="navlink" @click="goToNeeded()">What&nbsp;you&nbsp;need</div>
+        <div class="by">By&nbsp;<a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
+>>>>>>> master
       </div>
   </div>
     <span class="hamburger" @click="openNav()">&#9776;</span>
@@ -45,7 +52,7 @@ export default {
       eventBus.$emit('close-nav');
     },
     openNav() {
-      document.getElementById("mySidenav").style.width = "180px";
+      document.getElementById("mySidenav").style.width = "9em";
     },
     closeNav() {
       document.getElementById("mySidenav").style.width = "0";
@@ -83,7 +90,7 @@ export default {
 }
 
 .sidenav .navlink {
-  padding: 8px 8px 8px 20px;
+  padding: 8px 8px 12px 20px;
   text-decoration: none;
   font-size: 1em;
   /*display: block;*/
@@ -116,10 +123,10 @@ export default {
 
 .by {
   color: gray;
-  font-size: 12px;
+  font-size: 0.7em;
   text-align: left;
-  padding-bottom: 2em;
-  padding-left: 50px;
+  padding-bottom: 1.5em;
+  padding-left: 1em;
   padding-right: auto;
   margin-top: auto;
   margin-botton: auto;
