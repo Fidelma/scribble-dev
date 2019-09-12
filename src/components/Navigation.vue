@@ -3,8 +3,7 @@
   <div class="nav">
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&#10799;</a>
-<<<<<<< HEAD
-        
+
         <div class="navlink" @click="closeNav()">
           <router-link :to="{ name: 'home'}">Home</router-link>
         </div>
@@ -22,12 +21,6 @@
         </div>
 
         <div class="by">By <a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
-=======
-        <div class="navlink" @click="goHome()">Home</div>
-        <div class="navlink" @click="goToHowTo()">How&nbsp;to&nbsp;play</div>
-        <div class="navlink" @click="goToNeeded()">What&nbsp;you&nbsp;need</div>
-        <div class="by">By&nbsp;<a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
->>>>>>> master
       </div>
   </div>
     <span class="hamburger" @click="openNav()">&#9776;</span>
