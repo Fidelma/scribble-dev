@@ -3,10 +3,24 @@
   <div class="nav">
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&#10799;</a>
-        <div class="navlink" @click="goHome()">Home</div>
-        <div class="navlink" @click="goToHowTo()">How&nbsp;to&nbsp;play</div>
-        <div class="navlink" @click="goToNeeded()">What&nbsp;you&nbsp;need</div>
-        <div class="by">By&nbsp;<a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
+
+        <div class="navlink" @click="closeNav()">
+          <router-link :to="{ name: 'home'}">Home</router-link>
+        </div>
+
+        <div class="navlink" @click="closeNav()">
+          <router-link :to="{ name: 'needed' }">What&nbsp;you&nbsp;need</router-link>
+        </div>
+
+        <div class="navlink" @click="closeNav()">
+          <router-link :to="{ name: 'howto'}">How&nbsp;To&nbsp;Play</router-link>
+        </div>
+
+        <div class="navlink" @click="goToNeeded()">
+          <router-link :to="{ name: 'game' }">Play</router-link>
+        </div>
+
+        <div class="by">By <a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
       </div>
   </div>
     <span class="hamburger" @click="openNav()">&#9776;</span>
@@ -20,15 +34,15 @@ export default {
   methods: {
     goHome(){
       eventBus.$emit('home-setup', true);
-      this.closeNav();
+      // eventBus.$emit('close-nav', true);
     },
     goToHowTo(){
-      eventBus.$emit('display-rules', true);
       this.closeNav();
+      eventBus.$emit('display-rules', true);
     },
     goToNeeded(){
-      eventBus.$emit('display-needed', true);
-      this.closeNav();
+      // eventBus.$emit('display-needed', true);
+      eventBus.$emit('close-nav');
     },
     openNav() {
       document.getElementById("mySidenav").style.width = "9em";
@@ -90,7 +104,7 @@ export default {
 }
 
 .closebtn:hover {
-  
+
 }
 
 .hamburger {

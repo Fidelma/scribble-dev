@@ -2,148 +2,39 @@
   <div id="app">
     <navigation class="nav" ></navigation>
     <div id="content" @click="closeNav()">
-    <home v-if="this.displayHome"/>
-    <needed v-if="this.displayNeeded"/>
-    <rules v-if="this.displayRules"/>
-    <decks v-if="this.displayDecks" :deckTypesArray="deckTypesArray"/>
-    <setup v-if="this.displaySetup"/>
-    <clues v-if="this.displayClues" :clues="clues" :players="players"/>
-    </div>
 
+    <router-view></router-view>
+
+    </div>
   </div>
 </template>
 
 <script>
-import Home from './components/Home.vue'
-import Rules from './components/Rules.vue'
-import Needed from './components/Needed.vue'
 import Navigation from './components/Navigation.vue'
-import Setup from './components/Setup.vue'
-import Clues from './components/Clues.vue'
-import Decks from './components/Decks.vue'
+
 import { eventBus } from '@/main.js'
 
 export default {
   name: 'app',
-  data() {
-    return {
-      displayHome: true,
-      displayNeeded: false,
-      displayRules: false,
-      displayDecks: false,
-      displaySetup: false,
-      players: null,
-      displayClues: false,
-      clues: [],
-      deckTypesArray: [],
-      cluesIncluded: []
 
-    }
-  },
   components: {
-    home: Home,
-    rules: Rules,
-    needed: Needed,
-    navigation: Navigation,
-    setup: Setup,
-    clues: Clues,
-    decks: Decks
+
+    navigation: Navigation
 
   },
 
   mounted(){
-
-   this.loadClues();
-   this.getDecks();
-
-    eventBus.$on('home-setup', (display) => {
-      this.displayHome = display;
-      this.displayNeeded = false;
-      this.displayRules = false;
-      this.displaySetup = false;
-      this.displayClues = false;
-      this.displayDecks = false;
+    eventBus.$on('close-nav',() => {
+      this.closeNav();
     })
-
-    eventBus.$on('display-needed', (display) => {
-      this.getDecks();
-      this.displayHome = false;
-      this.displayNeeded = display;
-      this.displayRules = false;
-      this.displaySetup = false;
-      this.displayClues = false;
-      this.displayDecks = false;
-    })
-
-    eventBus.$on('display-rules', (display) => {
-      this.displayHome = false;
-      this.displayNeeded = false;
-      this.displayRules = display;
-      this.displaySetup = false;
-      this.displayClues = false;
-      this.displayDecks = false;
-
-    })
-
-    eventBus.$on('display-decks', (display) => {
-      this.displayHome = false;
-      this.displayDecks = display;
-      this.displayNeeded = false;
-      this.displayRules = false;
-
-    })
-
-    eventBus.$on('first-clue', (players) => {
-      this.players = players;
-      this.displaySetup = false;
-      this.displayClues = true;
-    })
-
-    eventBus.$on('display-setup', (display) => {
-      this.displaySetup = display;
-      this.displayDecks = false;
-    })
-
   },
 
   methods: {
-    loadClues(){
-      fetch('./data/clues.JSON')
-      .then(res => res.json())
-      .then(returnedData => this.clues = returnedData.clueCollection);
-    },
+
     closeNav() {
       document.getElementById("mySidenav").style.width = "0";
-    },
-    getDecks(){
-      const deckTypes = [];
-      const tempDecks = [];
-      for(const i in this.clues){
-        console.log("hello");
-        if(!tempDecks.includes(this.clues[i].deck)){
-          const deck = this.clues[i].deck;
-          deckTypes.push({deck: deck, enabled: false});
-          tempDecks.push(deck);
-        }
-      }
-      this.deckTypesArray = deckTypes;
     }
   }
-
-  // computed: {
-  //   deckTypesArray: function(){
-  //     const deckTypes = [];
-  //     const tempDecks = [];
-  //     for(const i in this.clues){
-  //       if(!tempDecks.includes(this.clues[i].deck)){
-  //         const deck = this.clues[i].deck;
-  //         deckTypes.push({deck: deck, enabled: false});
-  //         tempDecks.push(deck);
-  //       }
-  //     }
-  //     return deckTypes;
-  //   }
-  // }
 }
 </script>
 

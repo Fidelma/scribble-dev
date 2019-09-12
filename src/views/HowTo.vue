@@ -17,9 +17,9 @@
   <p>Once the scribbles go full circle reveal the drawings and prompts!</p>
   <strong>Funniest wins!</strong>
 </div>
+
   <div class="button-row">
-    <button type="button" @click="goToNeeded()">What you need</button>
-    <button type="button" @click="displayDecks()">Let's Go!</button>
+    <button><router-link :to="{ name: 'game' }">Play</router-link></button>
   </div>
 
 
@@ -30,7 +30,7 @@
 import {eventBus} from '@/main.js'
 
 export default {
-  name: 'rules',
+  name: 'howto',
   methods: {
     displayDecks(){
       eventBus.$emit('display-decks', true)

@@ -6,8 +6,11 @@
     <div class="handwritten">A game of bad drawings</div>
   </div>
   <div class="button-row">
-  <button type="button" @click="goToHowTo()">How to play</button>
-  <button type="button" name="button" @click="startPlay()">Start!</button>
+
+
+  <button> <router-link :to="{ name: 'needed'}">Before you play</router-link></button>
+
+  <button><router-link :to="{ name: 'game'}">Start</router-link></button>
   </div>
 
 
@@ -18,8 +21,13 @@
 import { eventBus } from '@/main.js'
 
 export default {
-  name: "home",
+  name: 'home',
   methods: {
+
+    closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    },
+
     startPlay(){
       eventBus.$emit('display-needed', true)
     },
@@ -50,20 +58,20 @@ animation: postit-spin infinite 0.5s ease-in-out;
 animation-direction: alternate;
 
 line-height: 1;
-text-align:center;     
-width: 275px;    
-margin: 45px;    
-margin-top: 25px;    
+text-align:center;
+width: 275px;
+margin: 45px;
+margin-top: 25px;
 min-height:200px;
 max-height:200px;
 padding-top: 25px;
-position:relative;   
-border:1px solid #E8E8E8;  
+position:relative;
+border:1px solid #E8E8E8;
 border-top:20px solid #fdfd86;
 font-family:'Ubuntu';
-font-size:32px;      
+font-size:32px;
 border-bottom-right-radius: 60px 5px;
-display:inline-block;    
+display:inline-block;
  background: #ffff88; /* Old browsers */
 background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, right bottom, color-stop(81%,#ffff88), color-stop(82%,#ffff88), color-stop(82%,#ffff88), color-stop(100%,#ffffc6)); /* Chrome,Safari4+ */
