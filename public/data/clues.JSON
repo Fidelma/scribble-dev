@@ -1,52 +1,136 @@
 {
    "clueCollection":[
       {
-         "text":"a tractor with a trailer on the back.",
+         "text":"Gorilla panic",
          "deck":"child"
       },
       {
-         "text":"A dolphin jumping next to a boat.",
+         "text":"Big girl's blouse",
+         "deck":"adult"
+      },
+      {
+         "text":"Heavy breathing",
+         "deck":"adult"
+      },
+      {
+         "text":"Getting fingered by the law",
+         "deck":"adult"
+      },
+      {
+         "text":"Shouting at old people",
          "deck":"child"
       },
       {
-         "text":"a woman typing at a computer.",
+         "text":"The fork museum",
          "deck":"child"
       },
       {
-         "text":"something else I can't think.",
+         "text":"Cat got your tongue",
          "deck":"child"
       },
       {
-         "text":"Something adult and boring.",
+         "text":"Eatingn spiderwebs",
+         "deck":"child"
+      },
+      {
+         "text":"Popcorn surprise",
+         "deck":"child"
+      },
+      {
+         "text":"Walking into a mirror",
+         "deck":"child"
+      },
+      {
+         "text":"Badly drawn on eyebrows",
          "deck":"adult"
       },
       {
-         "text":"something else adult and boring",
+         "text":"Disappointing gravestone",
          "deck":"adult"
       },
       {
-         "text":"A third boring adult thing.",
+         "text":"Dad dancing",
+         "deck":"child"
+      },
+      {
+         "text":"Centaur lollipop man",
+         "deck":"child"
+      },
+      {
+         "text":"Naked statue of yourself",
          "deck":"adult"
       },
       {
-         "text":"and finally yet another boring adult thing.",
+         "text":"Centaur lollipop man",
+         "deck":"child"
+      },
+      {
+         "text":"Crying over spilt milk",
+         "deck":"child"
+      },
+      {
+         "text":"Moobs",
          "deck":"adult"
       },
       {
-         "text":"Something adult and exciting.",
-         "deck":"nsfw"
+         "text":"Shaving a lama",
+         "deck":"child"
       },
       {
-         "text":"something else adult and nsfw",
-         "deck":"nsfw"
+         "text":"Adopting a cactus",
+         "deck":"child"
       },
       {
-         "text":"A third un-pc adult thing.",
-         "deck":"nsfw"
+         "text":"Dark matter",
+         "deck":"adult"
       },
       {
-         "text":"and finally yet another edgy adult thing.",
-         "deck":"nsfw"
+         "text":"S.T.D. Appreciation Day",
+         "deck":"child"
+      },
+      {
+         "text":"Bronies",
+         "deck":"adult"
+      },
+      {
+         "text":"Sore loser",
+         "deck":"child"
+      },
+      {
+         "text":"Beer goggles",
+         "deck":"adult"
+      },
+      {
+         "text":"Washing someone's mouth out with soap",
+         "deck":"child"
+      },
+      {
+         "text":"Back acne",
+         "deck":"adult"
+      },
+      {
+         "text":"Dreaming of bacon",
+         "deck":"adult"
+      },
+      {
+         "text":"Dogs dressed as humans",
+         "deck":"child"
+      },
+      {
+         "text":"Costing an arm and a leg",
+         "deck":"child"
+      },
+      {
+         "text":"Fear of toilets",
+         "deck":"child"
+      },
+      {
+         "text":"Embarassing x-ray",
+         "deck":"child"
+      },
+      {
+         "text":"Stealing the covers ",
+         "deck":"child"
       }
    ]
 }
