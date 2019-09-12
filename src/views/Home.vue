@@ -54,7 +54,7 @@ export default {
 
 .postit {
 animation: postit-spin infinite 0.5s ease-in-out;
-/*animation-iteration-count: 3;*/
+animation-iteration-count: 3;
 animation-direction: alternate;
 
 line-height: 1;

@@ -5,6 +5,7 @@
   <decks v-if="this.displayDecks" :deckTypesArray="deckTypesArray"/>
   <setup v-if="this.displaySetup"/>
   <clues v-if="this.displayClues" :clues="clues" :players="players"/>
+  <draw v-if="this.displayDraw"/>
 
 </div>
 </template>
@@ -13,6 +14,8 @@
 import Setup from '@/components/Setup.vue'
 import Clues from '@/components/Clues.vue'
 import Decks from '@/components/Decks.vue'
+import Draw from '@/components/Draw.vue'
+
 import { eventBus } from '@/main.js'
 
 export default {
@@ -22,6 +25,7 @@ export default {
     return {
       displayDecks: true,
       displaySetup: false,
+      displayDraw: false,
       players: null,
       displayClues: false,
       clues: [],
@@ -43,6 +47,11 @@ export default {
       this.players = players;
       this.displaySetup = false;
       this.displayClues = true;
+    })
+
+    eventBus.$on('display-draw', (display) => {
+      this.displayClues = false;
+      this.displayDraw = display;
     })
   },
 
@@ -74,8 +83,8 @@ export default {
   components: {
     setup: Setup,
     clues: Clues,
-    decks: Decks
-
+    decks: Decks,
+    draw: Draw
   }
 }
 </script>

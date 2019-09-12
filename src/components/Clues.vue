@@ -6,12 +6,15 @@
       <clue :currentClue="this.clues[this.player]"/>
     </div>
     <h3>Write it down on your Post-it.</h3>
-    <button type="button" @click="nextPlayer()">Next Player</button>
+    <button v-if="!this.lastPlayer" type="button" @click="nextPlayer()">Next Player</button>
+    <button v-if="this.lastPlayer" type="button" @click="nextStep()">Next Step</button>
   </div>
 </template>
 
 <script>
 import Clue from './Clue.vue'
+
+import { eventBus } from '@/main.js'
 
 export default {
   name: 'clues',
@@ -19,6 +22,7 @@ export default {
   data(){
     return {
       player: 0,
+      lastPlayer: false,
       displayClue: true
     }
   },
@@ -29,12 +33,18 @@ export default {
   methods: {
     nextPlayer(){
       if (this.player < (this.players - 1)){
-        this.player +=1
-      }else {
-        this.displayClue = false
+        this.player += 1;
+        if (this.player == (this.players - 1)) {
+          this.lastPlayer = true;
+        }
+      } else {
+        this.displayClue = false;
       }
-    }
+    },
 
+    nextStep() {
+      eventBus.$emit('display-draw', true)
+    }
   }
 }
 </script>
