@@ -33,6 +33,17 @@ export default {
 
   mounted(){
     this.loadClues();
+
+    eventBus.$on('display-setup', (display) => {
+      this.displaySetup = display;
+      this.displayDecks = false;
+    })
+
+    eventBus.$on('first-clue', (players) => {
+      this.players = players;
+      this.displaySetup = false;
+      this.displayClues = true;
+    })
   },
 
   methods: {
@@ -60,21 +71,6 @@ export default {
   },
 
 
-  //   getDecks(){
-  //     console.log("get decks");
-  //     const deckTypes = [];
-  //     const tempDecks = [];
-  //     for(const i in this.clues){
-  //       console.log("hello");
-  //       if(!tempDecks.includes(this.clues[i].deck)){
-  //         const deck = this.clues[i].deck;
-  //         deckTypes.push({deck: deck, enabled: false});
-  //         tempDecks.push(deck);
-  //       }
-  //     }
-  //     this.deckTypesArray = deckTypes;
-  //   }
-  // },
   components: {
     setup: Setup,
     clues: Clues,

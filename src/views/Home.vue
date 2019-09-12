@@ -6,8 +6,11 @@
     <div class="handwritten">A game of bad drawings</div>
   </div>
   <div class="button-row">
-  <button type="button" @click="goToHowTo()">How to play</button>
-  <button type="button" name="button" @click="startPlay()">Start!</button>
+
+
+  <button> <router-link :to="{ name: 'needed'}">Before you play</router-link></button>
+
+  <button><router-link :to="{ name: 'game'}">Start</router-link></button>
   </div>
 
 
@@ -20,6 +23,11 @@ import { eventBus } from '@/main.js'
 export default {
   name: 'home',
   methods: {
+
+    closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    },
+
     startPlay(){
       eventBus.$emit('display-needed', true)
     },

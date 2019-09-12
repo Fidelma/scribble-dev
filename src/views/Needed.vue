@@ -9,8 +9,8 @@
     </div>
     <div>
       <div class="button-row">
-      <button type="button" @click="goToHowTo()">How to play</button>
-      <button type="button" @click="displaySetup()">Let's Go!</button>
+      <button><router-link :to="{ name: 'howto' }">How to play</router-link></button>
+
       </div>
     </div>
   </div>
