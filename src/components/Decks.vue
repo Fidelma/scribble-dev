@@ -20,13 +20,14 @@ export default {
   props: ['deckTypesArray'],
   data(){
     return {
-      selectedDecks: []
+      // selectedDecks: []
     }
   },
   methods: {
     displaySetup(){
-      eventBus.$emit('display-setup', true);
+      eventBus.$emit('display-setup', this.deckTypesArray);
     },
+
     toggleDeck(index){
       this.deckTypesArray[index].enabled = !this.deckTypesArray[index].enabled;
       console.log(this.deckTypesArray[index].enabled);
@@ -36,8 +37,8 @@ export default {
       } else {
 	      el.firstElementChild.style.color = "rgba(0,0,0,0)";
       }
-
     }
+
   }
 
 }

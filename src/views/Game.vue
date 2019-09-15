@@ -4,7 +4,7 @@
 
   <decks v-if="this.displayDecks" :deckTypesArray="deckTypesArray"/>
   <setup v-if="this.displaySetup"/>
-  <clues v-if="this.displayClues" :clues="clues" :players="players"/>
+  <clues v-if="this.displayClues" :cluesIncluded="cluesIncluded" :players="players"/>
   <draw v-if="this.displayDraw"/>
 
 </div>
@@ -30,7 +30,8 @@ export default {
       displayClues: false,
       clues: [],
       deckTypesArray: [],
-      cluesIncluded: []
+      cluesIncluded: [],
+      selectedDecks: []
     }
   },
 
@@ -38,8 +39,23 @@ export default {
   mounted(){
     this.loadClues();
 
-    eventBus.$on('display-setup', (display) => {
-      this.displaySetup = display;
+    eventBus.$on('display-setup', (chosenDecks) => {
+      let toBeSelected = [];
+      this.deckTypesArray.forEach(function (deck) {
+        if(deck.enabled){
+          toBeSelected.push(deck.deck);
+        }
+      })
+      this.selectedDecks = toBeSelected;
+
+      let tempClues = [];
+      this.clues.forEach(function(clue) {
+        if(toBeSelected.includes(clue.deck)){
+          tempClues.push(clue);
+        }
+      })
+      this.cluesIncluded = tempClues;
+      this.displaySetup = true;
       this.displayDecks = false;
     })
 
