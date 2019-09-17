@@ -16,7 +16,7 @@
           <router-link :to="{ name: 'howto'}">How&nbsp;To&nbsp;Play</router-link>
         </div>
 
-        <div class="navlink" @click="goToNeeded()">
+        <div class="navlink" @click="resetPlay()">
           <router-link :to="{ name: 'game' }">Play</router-link>
         </div>
 
@@ -32,23 +32,16 @@ import {eventBus} from '@/main.js'
 export default {
   name: 'navigation',
   methods: {
-    goHome(){
-      eventBus.$emit('home-setup', true);
-      // eventBus.$emit('close-nav', true);
-    },
-    goToHowTo(){
-      this.closeNav();
-      eventBus.$emit('display-rules', true);
-    },
-    goToNeeded(){
-      // eventBus.$emit('display-needed', true);
-      eventBus.$emit('close-nav');
-    },
+
     openNav() {
       document.getElementById("mySidenav").style.width = "9em";
     },
     closeNav() {
       document.getElementById("mySidenav").style.width = "0";
+    },
+    resetPlay(){
+      this.closeNav();
+      eventBus.$emit('reset-play', true);
     }
   }
 }

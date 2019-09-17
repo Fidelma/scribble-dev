@@ -69,6 +69,16 @@ export default {
       this.displayClues = false;
       this.displayDraw = display;
     })
+
+    eventBus.$on('reset-play', (display)=> {
+      this.displayDecks = display;
+      this.displayDraw = false;
+      this.displaySetup = false;
+      this.displayClues = false;
+      this.players = null;
+      this.cluesIncluded = [];
+      this.selectedDecks = [];
+    })
   },
 
   methods: {
