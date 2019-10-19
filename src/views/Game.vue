@@ -33,7 +33,7 @@ export default {
       deckTypesArray: [],
       cluesIncluded: [],
       selectedDecks: [],
-      test: false
+      test: true
     }
   },
 
@@ -108,7 +108,7 @@ export default {
          }
          this.deckTypesArray = deckTypes;
        } else {
-         // Allows only child friendly clues to be included 
+         // Allows only child friendly clues to be included
          let tempClues = [];
          this.clues.forEach(function(clue) {
            if(clue.deck == "child"){
@@ -122,7 +122,7 @@ export default {
 
    checkIfAdultAllowed(){
      if (this.test){
-      return
+      return true
      } else {
        this.displaySetup = true;
        this.displayDecks = false;
