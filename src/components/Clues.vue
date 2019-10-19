@@ -1,7 +1,8 @@
 <template lang="html">
   <div class="">
     <h1>Player {{this.player+1}}</h1>
-    <h3>Tap and hold to reveal your clue</h3>
+    <h3 class="tap-hold">Tap and hold to reveal your clue</h3>
+    <h3 class="click-hold">Click and hold to reveal your clue</h3>
     <div class="clue" v-if="displayClue">
       <clue :currentClue="this.cluesIncluded[this.player]"/>
     </div>
@@ -47,6 +48,13 @@ export default {
     }
   }
 }
+
+window.oncontextmenu = function(event) {
+     event.preventDefault();
+     event.stopPropagation();
+     return false;
+};
+
 </script>
 
 <style lang="css" scoped>
@@ -59,9 +67,40 @@ export default {
   color: #ffff99;
   box-shadow:1px 1px 1px rgba(0, 0, 0, 0.40);
   cursor: pointer;
+
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 .clue:active {
   color: black;
+}
+
+/*Primiary device is finger*/
+@media (hover: none) { 
+  .tap-hold {
+    visibility: visible;
+  }
+  .click-hold {
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/*Primary device is mouse*/
+@media (hover: hover) {
+  .tap-hold {
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .click-hold {
+    visibility: visible;
+  }
 }
 </style>
