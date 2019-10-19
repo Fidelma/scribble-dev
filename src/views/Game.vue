@@ -4,7 +4,7 @@
 
   <decks v-if="this.displayDecks" :deckTypesArray="deckTypesArray"/>
   <setup v-if="this.displaySetup"/>
-  <clues v-if="this.displayClues" :cluesIncluded="cluesIncluded" :players="players"/>
+  <clues v-if="this.displayClues" :currentClues="currentClues" :players="players"/>
   <draw v-if="this.displayDraw"/>
 
 </div>
@@ -32,7 +32,8 @@ export default {
       clues: [],
       deckTypesArray: [],
       cluesIncluded: [],
-      selectedDecks: []
+      selectedDecks: [],
+      currentClues: []
     }
   },
 
@@ -57,6 +58,7 @@ export default {
           tempClues.push(clue);
         }
       })
+      this.shufflePrompts(tempClues);
       this.cluesIncluded = tempClues;
       this.displaySetup = true;
       this.displayDecks = false;
@@ -64,6 +66,7 @@ export default {
 
     eventBus.$on('first-clue', (players) => {
       this.players = players;
+      this.currentClues = this.cluesIncluded.splice(0, this.players);
       this.displaySetup = false;
       this.displayClues = true;
     })
@@ -75,9 +78,9 @@ export default {
 
     eventBus.$on('reset-play', (display)=> {
       this.loadClues();
-      this.displayDecks = this.adultMode;
+      this.displayDecks = true
       this.displayDraw = false;
-      this.displaySetup = !this.adultMode;
+      this.displaySetup = false;
       this.displayClues = false;
       this.players = null;
       this.cluesIncluded = [];
@@ -85,14 +88,11 @@ export default {
     })
 
     eventBus.$on('play-again', () => {
-      this.loadClues();
-      this.displayDecks = this.adultMode
+      this.currentClues = this.cluesIncluded.splice(0, this.players);
+      this.displayDecks = false
       this.displayDraw = false;
-      this.displaySetup = !this.adultMode;
-      this.displayClues = false;
-      this.players = null;
-      this.cluesIncluded = [];
-      this.selectedDecks = [];
+      this.displaySetup = false;
+      this.displayClues = true;
     })
   },
 
@@ -106,7 +106,7 @@ export default {
       })
       .then(returnedData => {
        this.clues = returnedData.clueCollection;
-       if(this.checkIfAdultAllowed()){
+       if(this.adultMode){
          // allows choice of decks including adult only
          const deckTypes = [];
          const tempDecks = [];
@@ -120,14 +120,8 @@ export default {
          this.deckTypesArray = deckTypes;
        } else {
          // Allows only child friendly clues to be included
-         let tempClues = [];
-         this.clues.forEach(function(clue) {
-           if(clue.deck == "child"){
-             tempClues.push(clue);
-           }
-         })
-         this.cluesIncluded = tempClues
-       }
+         this.deckTypesArray = [{deck: "child", enabled: true}]
+         }
      });
    },
 
@@ -135,9 +129,21 @@ export default {
      if (this.adultMode){
       return true
      } else {
-       this.displaySetup = true;
-       this.displayDecks = false;
        return false
+     }
+   },
+
+   // playAgain(){
+   //   this.displayDecks = false
+   //   this.displayDraw = false;
+   //   this.displaySetup = false;
+   //   this.displayClues = true;
+   // },
+
+   shufflePrompts(array) {
+     for (let i = array.length - 1; i > 0; i--) {
+         const j = Math.floor(Math.random() * (i + 1));
+         [array[i], array[j]] = [array[j], array[i]];
      }
    }
   },
