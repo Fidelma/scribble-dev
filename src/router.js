@@ -16,7 +16,8 @@ const router = new Router({
     {
       path: '/play',
       name: 'game',
-      component: Game
+      component: Game,
+      props: true
     },
     {
       path: '/howto',

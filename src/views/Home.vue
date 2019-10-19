@@ -10,7 +10,7 @@
 
   <button> <router-link :to="{ name: 'needed'}">Before you play</router-link></button>
 
-  <button><router-link :to="{ name: 'game'}">Start</router-link></button>
+  <button><router-link :to="{ name: 'game', props: {test: true}}">Start</router-link></button>
   </div>
 
 

@@ -17,7 +17,7 @@
         </div>
 
         <div class="navlink" @click="resetPlay()">
-          <router-link :to="{ name: 'game' }">Play</router-link>
+          <router-link :to="{ name: 'game', props: {test: true} }">Play</router-link>
         </div>
 
         <div class="by">By <a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
