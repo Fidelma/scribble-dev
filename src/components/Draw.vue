@@ -19,13 +19,19 @@
     <p>Once the scribbles go full circle reveal the drawings and prompts!</p>
     <strong>Funniest wins!</strong>
   </div>
+      <button @click="playAgain()">Play Again!</button>
   </div>
 </template>
 
 <script>
+import { eventBus } from '@/main.js'
+
 export default {
   name: 'draw',
   methods: {
+    playAgain(){
+      eventBus.$emit('play-again');
+    }
   }
 }
 

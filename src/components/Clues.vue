@@ -4,7 +4,7 @@
     <h3 class="tap-hold">Tap and hold to reveal your clue</h3>
     <h3 class="click-hold">Click and hold to reveal your clue</h3>
     <div class="clue" v-if="displayClue">
-      <clue :currentClue="this.cluesIncluded[this.player]"/>
+      <clue :currentClue="this.currentClues[this.player]"/>
     </div>
     <h3>Write it down on your Post-it.</h3>
     <button v-if="!this.lastPlayer" type="button" @click="nextPlayer()">Next Player</button>
@@ -19,7 +19,7 @@ import { eventBus } from '@/main.js'
 
 export default {
   name: 'clues',
-  props: ['cluesIncluded', 'players'],
+  props: ['currentClues', 'players'],
   data(){
     return {
       player: 0,
