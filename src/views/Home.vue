@@ -22,6 +22,7 @@ import { eventBus } from '@/main.js'
 
 export default {
   name: 'home',
+  props: ['adultMode'],
   methods: {
 
     closeNav() {

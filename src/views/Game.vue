@@ -21,6 +21,7 @@ import { eventBus } from '@/main.js'
 export default {
 
   name: 'game',
+  props: ['adultMode'],
   data(){
     return {
       displayDecks: true,
@@ -38,6 +39,8 @@ export default {
 
   mounted(){
     this.loadClues();
+
+    this.checkIfAdultAllowed();
 
     eventBus.$on('display-setup', (chosenDecks) => {
       let toBeSelected = [];
@@ -83,7 +86,7 @@ export default {
 
   methods: {
     loadClues(){
-      fetch('./data/clues.JSON')
+      fetch('../data/clues.JSON')
       .then(function(response){
         if(response.ok){
           return response.json();
@@ -91,17 +94,39 @@ export default {
       })
       .then(returnedData => {
        this.clues = returnedData.clueCollection;
-       const deckTypes = [];
-       const tempDecks = [];
-       for(const i in returnedData.clueCollection){
-         if(!tempDecks.includes(returnedData.clueCollection[i].deck)){
-           const deck = returnedData.clueCollection[i].deck;
-           deckTypes.push({deck: deck, enabled: false});
-           tempDecks.push(deck);
+       if(this.checkIfAdultAllowed()){
+         // allows choice of decks including adult only
+         const deckTypes = [];
+         const tempDecks = [];
+         for(const i in returnedData.clueCollection){
+           if(!tempDecks.includes(returnedData.clueCollection[i].deck)){
+             const deck = returnedData.clueCollection[i].deck;
+             deckTypes.push({deck: deck, enabled: false});
+             tempDecks.push(deck);
+           }
          }
+         this.deckTypesArray = deckTypes;
+       } else {
+         // Allows only child friendly clues to be included
+         let tempClues = [];
+         this.clues.forEach(function(clue) {
+           if(clue.deck == "child"){
+             tempClues.push(clue);
+           }
+         })
+         this.cluesIncluded = tempClues
        }
-       this.deckTypesArray = deckTypes;
      });
+   },
+
+   checkIfAdultAllowed(){
+     if (this.adultMode){
+      return true
+     } else {
+       this.displaySetup = true;
+       this.displayDecks = false;
+       return false
+     }
    }
   },
 

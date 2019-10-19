@@ -11,12 +11,14 @@ const router = new Router({
     {
       path: '',
       name: 'home',
-      component: Home
+      component: Home,
+      props: true
     },
     {
       path: '/play',
       name: 'game',
-      component: Game
+      component: Game,
+      props: true
     },
     {
       path: '/howto',
