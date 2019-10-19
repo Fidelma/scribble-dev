@@ -74,9 +74,21 @@ export default {
     })
 
     eventBus.$on('reset-play', (display)=> {
-      this.displayDecks = display;
+      this.loadClues();
+      this.displayDecks = this.adultMode;
       this.displayDraw = false;
-      this.displaySetup = false;
+      this.displaySetup = !this.adultMode;
+      this.displayClues = false;
+      this.players = null;
+      this.cluesIncluded = [];
+      this.selectedDecks = [];
+    })
+
+    eventBus.$on('play-again', () => {
+      this.loadClues();
+      this.displayDecks = this.adultMode
+      this.displayDraw = false;
+      this.displaySetup = !this.adultMode;
       this.displayClues = false;
       this.players = null;
       this.cluesIncluded = [];
