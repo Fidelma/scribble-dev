@@ -3,7 +3,7 @@
     <navigation class="nav" ></navigation>
     <div id="content" @click="closeNav()">
 
-    <router-view></router-view>
+    <router-view :adultMode="this.adultMode" ></router-view>
 
     </div>
   </div>
@@ -16,6 +16,11 @@ import { eventBus } from '@/main.js'
 
 export default {
   name: 'app',
+  data(){
+    return {
+      adultMode: false
+    }
+  },
 
   components: {
 
@@ -26,6 +31,10 @@ export default {
   mounted(){
     eventBus.$on('close-nav',() => {
       this.closeNav();
+    })
+
+    eventBus.$on('toggle-adult', () => {
+      this.adultMode = !this.adultMode
     })
   },
 

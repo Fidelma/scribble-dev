@@ -30,7 +30,6 @@ export default {
 
     toggleDeck(index){
       this.deckTypesArray[index].enabled = !this.deckTypesArray[index].enabled;
-      console.log(this.deckTypesArray[index].enabled);
       var el = document.getElementById(this.deckTypesArray[index].deck);
       if (this.deckTypesArray[index].enabled) {
 	      el.firstElementChild.style.color = "black";

@@ -17,10 +17,14 @@
         </div>
 
         <div class="navlink" @click="resetPlay()">
-          <router-link :to="{ name: 'game', props: {test: true} }">Play</router-link>
+          <router-link :to="{ name: 'game'}">Play</router-link>
         </div>
 
-        <div class="by">By <a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
+        <div class="adult" @click="toggleAdult()">
+          <button> Adult </button>
+        </div>
+
+        <div class="by">By&nbsp;<a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
       </div>
   </div>
     <span class="hamburger" @click="openNav()">&#9776;</span>
@@ -42,6 +46,9 @@ export default {
     resetPlay(){
       this.closeNav();
       eventBus.$emit('reset-play', true);
+    },
+    toggleAdult(){
+      eventBus.$emit('toggle-adult');
     }
   }
 }

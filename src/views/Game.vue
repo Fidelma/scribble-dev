@@ -21,7 +21,7 @@ import { eventBus } from '@/main.js'
 export default {
 
   name: 'game',
-  // props: ['test'],
+  props: ['adultMode'],
   data(){
     return {
       displayDecks: true,
@@ -32,8 +32,7 @@ export default {
       clues: [],
       deckTypesArray: [],
       cluesIncluded: [],
-      selectedDecks: [],
-      test: true
+      selectedDecks: []
     }
   },
 
@@ -121,7 +120,7 @@ export default {
    },
 
    checkIfAdultAllowed(){
-     if (this.test){
+     if (this.adultMode){
       return true
      } else {
        this.displaySetup = true;

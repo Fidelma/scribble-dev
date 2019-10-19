@@ -10,7 +10,7 @@
 
   <button> <router-link :to="{ name: 'needed'}">Before you play</router-link></button>
 
-  <button><router-link :to="{ name: 'game', props: {test: true}}">Start</router-link></button>
+  <button><router-link :to="{ name: 'game'}">Start</router-link></button>
   </div>
 
 
@@ -22,6 +22,7 @@ import { eventBus } from '@/main.js'
 
 export default {
   name: 'home',
+  props: ['adultMode'],
   methods: {
 
     closeNav() {
