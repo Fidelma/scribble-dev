@@ -120,7 +120,7 @@ export default {
          this.deckTypesArray = deckTypes;
        } else {
          // Allows only child friendly clues to be included
-         this.deckTypesArray = [{deck: "child", enabled: true}]
+         this.deckTypesArray = [{deck: "child", enabled: false}]
          }
      });
    },
