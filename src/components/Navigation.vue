@@ -20,8 +20,8 @@
           <router-link :to="{ name: 'game'}">Play</router-link>
         </div>
 
-        <div class="adult" @click="toggleAdult()">
-          <button> Adult </button>
+        <div class="adult" id="adult-mode-button" @click="toggleAdult()">
+           Adult mode enabled
         </div>
 
         <div class="by">By&nbsp;<a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
@@ -49,6 +49,15 @@ export default {
     },
     toggleAdult(){
       eventBus.$emit('toggle-adult');
+
+      let elem = document.getElementById("adult-mode-button")
+      // modify text color on click
+      // modify back on another click.
+      if (window.getComputedStyle(elem).color == "rgb(255, 255, 170)") {
+        document.getElementById("adult-mode-button").style.color = "black";
+      } else {
+        document.getElementById("adult-mode-button").style.color = "rgb(255, 255, 170)";
+      }
     }
   }
 }
@@ -109,6 +118,16 @@ export default {
 
 }
 
+.adult {
+  padding: 8px 8px 12px 20px;
+  height: 2em;
+  color: #ffffaa;
+  margin-top: auto;
+  margin-botton: auto;
+  cursor: pointer;
+
+}
+
 .hamburger {
   margin: 20px;
   position: absolute;
@@ -123,7 +142,8 @@ export default {
   padding-bottom: 1.5em;
   padding-left: 1em;
   padding-right: auto;
-  margin-top: auto;
+  margin-top: 1em;
+  /*margin-top: auto;*/
   margin-botton: auto;
 }
 .by > a {
