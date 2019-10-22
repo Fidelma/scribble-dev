@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="">
+    <p v-if="this.lastPlayer">Last player</p>
     <h1>Player {{this.player+1}}</h1>
     <h3 class="tap-hold">Tap and hold to reveal your clue</h3>
     <h3 class="click-hold">Click and hold to reveal your clue</h3>
@@ -7,6 +8,9 @@
       <clue :currentClue="this.currentClues[this.player]"/>
     </div>
     <h3>Write it down on your Post-it.</h3>
+    <p v-if="!this.lastPlayer">Press next when done then pass it on.</p>
+    <p v-if="this.lastPlayer">Press next when done for next steps</p>
+
     <button v-if="!this.lastPlayer" type="button" @click="nextPlayer()">Next Player</button>
     <button v-if="this.lastPlayer" type="button" @click="nextStep()">Next Step</button>
   </div>
