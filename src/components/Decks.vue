@@ -5,7 +5,7 @@
       <button v-for="(i, index) in this.deckTypesArray" :id=i.deck @click="toggleDeck(index)">{{i.deck}}<span class="tick">&#10003;</span></button>
     </div>
     <div class="button-row">
-	    <button type="button" @click="displaySetup()">Done</button>
+	    <button disabled="disabled" id="enable-button" type="button" @click="displaySetup()">Done</button>
     </div>
   </div>
 </div>
@@ -35,6 +35,17 @@ export default {
 	      el.firstElementChild.style.color = "black";
       } else {
 	      el.firstElementChild.style.color = "rgba(0,0,0,0)";
+      }
+
+      // change button enable state if any element in array is enabled
+      var butt = document.getElementById("enable-button");
+      for (var i = this.deckTypesArray.length - 1; i >= 0; i--) {
+        if (this.deckTypesArray[i].enabled) {
+          butt.removeAttribute("disabled", "disabled")
+          break;
+        } else {
+          butt.setAttribute("disabled", "disabled")
+        }
       }
     }
 

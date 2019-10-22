@@ -126,6 +126,11 @@ button:active {
 }
 button:focus {outline:0;}
 
+button:disabled {
+  background-color: #e6e6b3;
+  color: #888888;
+}
+
 a {
   text-decoration: none;
   color: black;
