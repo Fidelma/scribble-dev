@@ -122,6 +122,8 @@ export default {
          // Allows only child friendly clues to be included
          this.deckTypesArray = [{deck: "child", enabled: false}]
          }
+         let el = document.getElementById("deck-container");
+         el.classList.remove("decks-empty");
      });
    },
 

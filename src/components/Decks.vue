@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="">
   	<h1>Pick your prompts</h1>
-  	<div class="decks">
+  	<div id="deck-container" class="decks decks-empty">
       <button v-for="(i, index) in this.deckTypesArray" :id=i.deck @click="toggleDeck(index)">{{i.deck}}<span class="tick">&#10003;</span></button>
     </div>
     <div class="button-row">
@@ -62,6 +62,15 @@ export default {
 	justify-content: center;
 	flex-direction: row;
 	flex-wrap: wrap;
+  opacity: 100;
+  min-height: 60vh;
+  transition: opacity 0.5s linear;
+}
+
+.decks-empty {
+  opacity: 0;
+  min-height: 60vh;
+  overflow: hidden;
 }
 
 .decks > button {
