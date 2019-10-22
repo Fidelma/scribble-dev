@@ -21,7 +21,7 @@
         </div>
 
         <div class="adult" id="adult-mode-button" @click="toggleAdult()">
-           Adult mode enabled
+           Adult&nbsp;mode enabled
         </div>
 
         <div class="by">By&nbsp;<a href="">Fidelma</a>&nbsp;&&nbsp;<a href="https://kaklin.github.io/">Filip</a></div>
