@@ -19,7 +19,9 @@
     <p>Once the scribbles go full circle reveal the drawings and prompts!</p>
     <strong>Funniest wins!</strong>
   </div>
+    <div class="button-row">
       <button @click="playAgain()">Play Again!</button>
+    </div>
   </div>
 </template>
 
