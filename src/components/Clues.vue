@@ -2,10 +2,10 @@
   <div class="">
     <p v-if="this.lastPlayer">Last player</p>
     <h1>Player {{this.player+1}}</h1>
-    <h3 class="tap-hold">Tap and hold to reveal your clue</h3>
-    <h3 class="click-hold">Click and hold to reveal your clue</h3>
-    <div class="clue" v-if="displayClue">
-      <clue :currentClue="this.currentClues[this.player]"/>
+    <h3 class="tap-hold">Tap the note to reveal your clue</h3>
+    <h3 class="click-hold">Click the note to reveal your clue</h3>
+    <div class="clue" v-if="displayClue" id="clue" @click="revealClue()">
+      <clue :currentClue="this.currentClues[this.player]" />
     </div>
     <h3>Write it down on your Post-it.</h3>
     <p v-if="!this.lastPlayer">Press next when done then pass it on.</p>
@@ -45,10 +45,19 @@ export default {
       } else {
         this.displayClue = false;
       }
+
+      // hide clue again
+      var el = document.getElementById("clue");
+      el.style.color = "#ffff99";
     },
 
     nextStep() {
       eventBus.$emit('display-draw', true)
+    },
+
+    revealClue() {
+      var el = document.getElementById("clue");
+      el.style.color = "black";
     }
   }
 }
@@ -76,10 +85,6 @@ window.oncontextmenu = function(event) {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
-}
-
-.clue:active {
-  color: black;
 }
 
 /*Primiary device is finger*/
